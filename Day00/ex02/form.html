@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Simple form</title>
+        <script type="text/javascript" src="./popup.js"> </script>
+        <style>
+        .field_name {
+            text-align: right;
+        }
+        .field {
+            width: 200px;
+            text-align: center;
+        }
+        #main {
+            display: flex;
+        }
+        #button_data {
+            display: flex;
+            justify-content: center;
+            padding-top: 10px;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <form action="">
+                <table>
+                    <tr>
+                        <td class="field_name">First name:</td>
+                        <td class="field">
+                            <input type="text" id="firstname"><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="field_name">Second name:</td>
+                        <td class="field">
+                            <input type="text" id="name"><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="field_name">Phone number:</td>
+                        <td class="field">
+                            <input type="tel" id="phone"><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="field_name">Age:</td>
+                        <td class="field">
+                            <input type="number" id="age"><br>
+                        </td>
+                    </tr>   
+                    <tr>
+                        <td class="field_name">Email:</td>
+                        <td class="field">
+                            <input type="email" id="email"><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="field_name">Student at 42?</td>
+                        <td style="padding-left: 25px; text-align: left;">
+                            <input type="checkbox" id="student">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="field_name">Gender:</td>
+                        <td class="field">
+                            <input type="radio" name="gender" id="gender_male"  value="Male"> Male
+                            <input type="radio" name="gender" id="gender_female" value="Female"> Female
+                            <input type="radio" name="gender" id="gender_other" value="Other"> Other
+                        </td>
+                    </tr>
+                </table>
+            <div id="button_data">
+                <input type="submit" value="Send my data!" onclick="displayFormContents()">
+            </div>
+        </form>
+        </div>
+    </body>
+</html>
