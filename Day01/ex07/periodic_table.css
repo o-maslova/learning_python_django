@@ -1,0 +1,26 @@
+td {
+  border: 1px solid black;
+  padding: 5px;
+}
+.even_elem {
+  text-align: right;
+}
+.sign {
+text-align: right;
+font-size: 1.3vw;
+font: bold;
+}
+.number {
+text-align: left;
+font-size: 1vw;
+}
+.massa {
+text-align: right;
+font-size: 0.75vw;
+font-weight: 10;
+}
+.electrons {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 2px;
+}
