@@ -1,0 +1,64 @@
+        <style>
+            table {
+                width: 100%;
+                height: 100%;
+                border: solid 2px;
+                border-color:sienna;
+                border-collapse: collapse;
+                text-align: center;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+            td {
+                border: solid 2px;
+                height: 30px;
+            }
+            tr td {
+                border-color:sienna;
+            }
+            .field_name {
+                font-family: cursive;
+                border-color:sienna;
+                text-align: right;
+                width: 20%;
+                padding-right: 10px;
+            }
+            .field_data {
+                font-family: cursive;
+                border-color:sienna;
+                text-align: left;
+                padding-left: 20px;
+            }
+            ul, ol {
+                border-color: royalblue;
+                text-align: left;
+            }
+        </style>
+        <table>
+            <tr>
+                <th colspan="2" style="height: 40px;">{profession}</th>
+            </tr>
+            <tr>
+                <td class="field_name" >Name</td>
+                <td class="field_data">{name}</td>
+            </tr>
+            <tr>
+                <td class="field_name">Surname</td>
+                <td class="field_data">{surname}</td>
+            </tr>
+            <tr>
+                <td class="field_name">Age</td>
+                <td class="field_data">{age}</td>
+            </tr>
+            <tr>
+                <td class="field_name">Skills</td>
+                <td class="field_data">
+                    <ul>{skills}</ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="field_name">Work experience</td>
+                <td class="field_data" style="padding-left: 0px;">
+                    <ol>{work_experience}</ol>
+                </td>
+            </tr>
+        </table>

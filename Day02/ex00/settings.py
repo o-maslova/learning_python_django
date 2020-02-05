@@ -1,0 +1,6 @@
+name = "Diana"
+surname = "Prince"
+age = "34"
+profession = "Wonder Woman"
+skills = "Martial Arts\nSwordfighting\nArchery\nAcrobatics\nDeflecting Bullets and Weapons with Bracelets\nWielding the Lasso of Truth"
+work_experience = "1918 - nowadays, Antiquity appraiser\nWork at the Luvr.\n\n1914 - 1918, Warrior\nDefended a mankind in the Great War.\n\nmiddle of 1914, Rescuer (side  job)\nHelped to survive an american pilot Steve Trevor when he was drowning in his vessel.\n\n1992 - 1914, Themyscira Fighting School\nBecame a capable and fierce warrior, learned hunting and tactic and how to be a typical amazon woman. Was the student of such masters as Antiope."
