@@ -1,18 +1,22 @@
 import sys
 
-states = {
-    "Oregon"    : "OR",
-    "Alabama"   : "AL",
-    "New Jersey": "NJ",
-    "Colorado"  : "CO"
-}
 
-capital_cities = {
-    "OR": "Salem",
-    "AL": "Montgomery",
-    "NJ": "Trenton",
-    "CO": "Denver"
-}
+def states():
+    return {
+        "Oregon"    : "OR",
+        "Alabama"   : "AL",
+        "New Jersey": "NJ",
+        "Colorado"  : "CO"
+    }
+
+
+def capital_cities():
+    return {
+        "OR": "Salem",
+        "AL": "Montgomery",
+        "NJ": "Trenton",
+        "CO": "Denver"
+    }
 
 
 def find_match(dictionary: dict, element: str):
@@ -29,16 +33,16 @@ def make_output(lst: list):
         norm_elem = elem.title()
 
         # Search for a match in capital_cities list
-        search_in_cities_res = find_match(capital_cities, norm_elem)
+        search_in_cities_res = find_match(capital_cities(), norm_elem)
 
         # Search for a match in states list
-        search_in_states_res = states.get(norm_elem)
+        search_in_states_res = states().get(norm_elem)
 
         if search_in_cities_res:
             out += "{city} is the capital of {state}\n".format(city=norm_elem,
-                                                               state=find_match(states, search_in_cities_res))
+                                                               state=find_match(states(), search_in_cities_res))
         elif search_in_states_res:
-            out += "{city} is the capital of {state}\n".format(city=capital_cities.get(search_in_states_res),
+            out += "{city} is the capital of {state}\n".format(city=capital_cities().get(search_in_states_res),
                                                                state=norm_elem)
         else:
             if norm_elem != '':

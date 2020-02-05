@@ -85,7 +85,10 @@ def make_html(list_of_lines):
     table = html_head + "       <table>\n" \
                         "           <tr>\n"
     table = make_first_row(table)
-    for elem in list_of_lines:
+    for i in range(len(list_of_lines)):
+        elem = list_of_lines[i]
+        if list_of_lines[i] != list_of_lines[-1]:
+            col_space = int(list_of_lines[i + 1]['position']) - int(elem['position'])
         if elem['position'] == '0' and list_of_lines[0] != elem:
             table += "              </tr>\n" \
                      "              <tr>\n"
@@ -93,18 +96,25 @@ def make_html(list_of_lines):
             elem_class = "even_elem"
         else:
             elem_class = ""
-        table += "              <td class=\"{elem_class}\">\n" \
-                 "                  <section class=\"number\">{number}</section>\n" \
-                 "                  <h4>{name}</h4>\n" \
-                 "                  <section class=\"sign\">{small}</section>\n" \
-                 "                  <section class=\"massa\">{molar}</section>\n" \
-                 "                  <section class=\"electrons\">{electron}</section>\n" \
+        table += "              <td>\n" \
+                 "                  <div class=\"container\">\n" \
+                 "                      <div class=\"other_data\">\n" \
+                 "                          <section class=\"number\">{number}</section>\n" \
+                 "                          <h4>{name}</h4>\n" \
+                 "                          <section class=\"sign\">{small}</section>\n" \
+                 "                          <section class=\"massa\">{molar}</section>\n" \
+                 "                      </div>\n" \
+                 "                      <section class=\"electrons\">{electron}</section>\n" \
+                 "                  </div>\n" \
                  "              </td>\n".format(elem_class=elem_class,
                                                 name=elem['name'],
                                                 number=elem['number'],
                                                 small=elem['small'],
                                                 molar=elem['molar'] ,
                                                 electron=elem['electron'])
+        if col_space > 1:
+            table += "          <td colspan=\"{num}\">\n" \
+                     "          </td>".format(num=col_space - 1)
     table += "          </tr>\n" \
              "      </table>\n" \
              "  </body>\n" \
@@ -114,7 +124,7 @@ def make_html(list_of_lines):
 
 
 if __name__ == '__main__':
-    create_css_file()
+    # create_css_file()
     read_file()
 
 #

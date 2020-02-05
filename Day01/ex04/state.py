@@ -1,28 +1,32 @@
 import sys
 
-states = {
-    "Oregon"    : "OR",
-    "Alabama"   : "AL",
-    "New Jersey": "NJ",
-    "Colorado"  : "CO"
-}
 
-capital_cities = {
-    "OR": "Salem",
-    "AL": "Montgomery",
-    "NJ": "Trenton",
-    "CO": "Denver"
-}
+def states():
+    return {
+        "Oregon"    : "OR",
+        "Alabama"   : "AL",
+        "New Jersey": "NJ",
+        "Colorado"  : "CO"
+    }
+
+
+def capital_cities():
+    return {
+        "OR": "Salem",
+        "AL": "Montgomery",
+        "NJ": "Trenton",
+        "CO": "Denver"
+    }
 
 
 def find_state(state):
-    for key, value in states.items():
+    for key, value in states().items():
         if value == state:
             return key
 
 
 def find_match(user_input: str):
-    for key, value in capital_cities.items():
+    for key, value in capital_cities().items():
         if user_input == value:
             return find_state(key)
     return "Unknown capital city"
