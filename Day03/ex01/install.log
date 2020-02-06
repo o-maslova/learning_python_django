@@ -1,0 +1,6 @@
+Collecting git+https://github.com/jaraco/path.git
+  Cloning https://github.com/jaraco/path.git to /private/var/folders/zz/zyxvpxvq6csfxvn_n0000qyr0005zp/T/pip-u5bqo74t-build
+Installing collected packages: UNKNOWN
+  Running setup.py install for UNKNOWN: started
+    Running setup.py install for UNKNOWN: finished with status 'done'
+Successfully installed UNKNOWN-0.0.0
