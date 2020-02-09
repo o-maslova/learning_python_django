@@ -1,0 +1,14 @@
+beautifulsoup4==4.8.2
+bs4==0.0.1
+certifi==2019.11.28
+chardet==3.0.4
+dewiki==0.1.0
+get==2019.4.13
+idna==2.8
+lxml==4.5.0
+post==2019.4.13
+public==2019.4.13
+query-string==2019.4.13
+requests==2.22.0
+soupsieve==1.9.5
+urllib3==1.25.8

@@ -1,0 +1,16 @@
+<h1>Templates</h1>
+<div>
+    <p>A Django template is a text file. While in the vast majority of cases this text file is an HTML file, Django templates are not restricted to HTML. Non-HTML examples include email templates and CSV templates.</p>
+    <p> template tag is surrounded by \{% and %\}. A template tag does something. This is deliberately vague because Django’s tags are extremely flexible. </p>
+    <p>To turn a plain text file into a Django template, the template designer adds template tags, variables and filters.</p>
+    <p>A template variable is surrounded by {{ and }}.</p>
+    <p>A template variable is something. Template variables are passed to the template at run time in the context. We’ll dig deeper into template contexts shortly.</p>
+    <p>Template variables don’t just handle simple data, they work with more complex data structures too. For example:</p>
+    <ul>
+        <li>Simple Variable. E.g. {{ title }}</li>
+        <li>Object Attribute. E.g. {{ page.title }}</li>
+        <li>Dictionary Lookup. E.g. {{ dict.key }}</li>
+        <li>List Index. E.g. {{ list_items.0 }}</li>
+        <li>Method Call. E.g. {{ var.upper }}</li>
+    </ul>
+</div>

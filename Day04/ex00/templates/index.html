@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Ex00: Markdown Cheatsheet</title>
+        <style>
+            table {
+                border: 2px solid;
+            }
+            tr, td, th {
+                vertical-align: top;
+                text-align: start;
+                border: 1px solid;
+                padding: 10px;
+            }
+            td {
+                padding-left: 10px;
+            }
+            .markdown-comment {
+                font-size: 12px;
+                padding: 0;
+                margin: -5px 0 0;
+                font-style: italic;
+                color: #87a6bc;
+            }
+            #markdown-reference {
+                border: 1px solid #d9e3ea;
+                box-shadow: none;
+                text-shadow: none;
+                -webkit-box-shadow: none;
+                -moz-box-shadow: none;
+                background: 0 0;
+                border-spacing: 0;
+                margin-right: 18px;
+                margin-left: 0;
+                font-size: 14px;
+                color: #2e4453;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Markdown quick reference cheatsheet</h1>
+        <table id="markdown-reference">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Markdown</th>
+                    <th>Processed</th>
+                </tr>
+            </thead>
+        <tbody>
+            <tr>
+                <th>Emphasis</th>
+                <td>
+                    <pre>*Emphasize* _emphasize_<br/>**Strong** __Strong__</pre>
+                </td>
+                <td><em>Emphasize</em><br />
+                    <strong>Strong</strong>
+                </td>
+            </tr>
+            <tr>
+                <th>Inline Links</th>
+                <td>
+                    <pre>A [link](http://example.com "Title").</pre>
+                    <p class="markdown-comment">Most browsers show the title text when hovering over a link.</p>
+                    <p>Please note that WordPress shortcodes, like [video] or [audio], will take priority over Markdown links and shouldn&#8217;t be used for link text.</p>
+                </td>
+            <td>A <a title="Title" href="http://example.com/">link</a>.</td>
+            </tr>
+            <tr>
+                <th>Referenced Links</th>
+                <td>
+                    <pre>Some text with [a link][1] and<br>another [link][2].
+                    <br>[1]: http://example.com/ "Title"<br>[2]: http://example.org/ "Title"</pre>
+                    <p class="markdown-comment">The reference section can be anywhere in the document</p>
+                </td>
+                <td>Some text with <a title="Title" href="http://example.com/">a link</a> and another <a title="Title" href="http://example.org/">link</a>.</td>
+            </tr>
+            <tr>
+            <th>Inline Images</th>
+                <td>
+                    <pre>Logo: ![Alt](/wp.png "Title")</pre>
+                    <p class="markdown-comment">The &#8220;Alt&#8221; text (alternative text) makes images accessible to visually impaired</p>
+                </td>
+                <td>Logo: <img title="Title" src="https://i2.wp.com/s.wordpress.org/about/images/logos/wordpress-logo-32.png" alt="Alt" /></td>
+            </tr>
+            <tr>
+                <th>Referenced Images</th>
+                <td>
+                    <pre>Smaller logo: ![Alt][1]
+
+                    [1]: /wp-smaller.png "Title"</pre>
+                </td>
+                <td>Smaller logo: <img title="Title" src="https://i2.wp.com/s.wordpress.org/about/images/wpmini-grey.png" alt="Alt text" /></td>
+            </tr>
+            <tr>
+                <th>Linked Images</th>
+                <td>
+                    <pre>Linked logo: [![alt text](/wp-smaller.png)]
+                    (http://wordpress.com/ "Title")</pre>
+                </td>
+                <td>Linked logo: <a title="Title" href="http://wordpress.com/"><img src="https://i2.wp.com/s.wordpress.org/about/images/wpmini-grey.png" alt="alt text" /></a></td>
+            </tr>
+            <tr>
+                <th><a id="foot" name="foot"></a>Footnotes</th>
+                <td>
+                    <pre>I have more [^1] to say up here.
+
+                    [^1]: To say down here.</pre>
+                <p class="markdown-comment">Footnotes will be added to the bottom of the document, with a link back to the original reference</p>
+                </td>
+                <td>I have more <sup id="fnref-68137-1"><a href="68137-1" rel="footnote">1</a></sup> to say up here.</p>
+                    <div class="footnotes">
+                        <hr />
+                        <ol>
+                            <li id="fn-68137-1">To say down here. <a href="68137-1" rev="footnote">↩</a></li>
+                        </ol>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>Line breaks</th>
+                <td><em>We do not support Markdown&#8217;s typical double-space to generate a line break due to our built-in auto-linebreaking function. A regular line break will generate a line break on output.</em></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Bullet Lists</th>
+                <td>
+                    <pre>* Item<br>* Item<br>- Item<br>- Item</pre>
+                </td>
+                <td>
+                    <ul>
+                        <li>Item</li>
+                        <li>Item</li>
+                        <li>Item</li>
+                        <li>Item</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>Numbered Lists</th>
+                <td>
+                    <pre>1. Item<br>2. Item</pre>
+                </td>
+                <td>
+                    <ol>
+                        <li>Item</li>
+                        <li>Item</li>
+                    </ol>
+                </td>
+            </tr>
+            <tr>
+            <th>Mixed Lists</th>
+                <td>
+                <pre>1. Item<br>2. Item<br>     * Mixed<br>     * Mixed<br>3. Item</pre>
+                </td>
+                <td>
+                    <ol>
+                        <li>Item</li>
+                        <li>Item
+                            <ul>
+                                <li>Mixed</li>
+                                <li>Mixed</li>
+                            </ul>
+                        </li>
+                        <li>Item</li>
+                    </ol>
+                </td>
+            </tr>
+            <tr>
+                <th>Blockquotes</th>
+                <td>
+                    <pre>&gt; Quoted text.<br>&gt; &gt; Quoted quote.<br><br>&gt; * Quoted<br>&gt; * List</pre>
+                </td>
+                <td>
+                    <blockquote><p>Quoted text.</p>
+                    <blockquote><p>Quoted quote.</p></blockquote>
+                    </blockquote>
+                    <blockquote>
+                        <ul>
+                            <li>Quoted</li>
+                            <li>List</li>
+                        </ul>
+                    </blockquote>
+                </td>
+            </tr>
+            <tr>
+                <th>Preformatted</th>
+                <td>
+                    <pre>Begin each line with<br>two spaces or more to<br>make text look<br>e x a c t l y<br>like  you  type i<br>t.</pre>
+                </td>
+                <td>
+                    <pre>Begin each line with<br>two spaces or more to<br>make text look<br>e x a c t l y<br>like  you  type i<br>t.</pre>
+                </td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>
+                    <pre>`This is code`</pre>
+                    </td>
+                <td><code>This is code</code></td>
+            </tr>
+            <tr>
+                <th>Code block</th>
+                <td>
+                    <pre>~~~~<br>This is a<br>piece of code<br>in a block<br>~~~~<br>```<br>This too<br>```</pre>
+                </td>
+                <td>
+                    <pre title=""><br>This is a<br>piece of code<br>in a block<br></pre><br><pre title=""><br>This too
+                    </pre>
+                </td>
+            </tr>
+            <tr>
+                <th>Syntax highlighting</th>
+                <td>
+                    <pre>```css<br>#button {<br>    border: none;<br>}<br>```</pre><br><p>See <a href="https://en.support.wordpress.com/code/posting-source-code/">Posting Source Code</a> for supported languages</p>
+                </td>
+                <td>
+                    <pre title=""><br>#button {<br>border: none;<br>}
+                    </pre>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

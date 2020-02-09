@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Form</title>
+    </head>
+    <body>
+        <h1>New form</h1>
+        <form method="POST">{% csrf_token %}
+            <div>
+                {{ form }}
+            </div>
+            <button type="submit">Save</button>
+        </form>
+       <div>
+            {% autoescape off %}
+                {{ data }}
+            {% endautoescape %}
+       </div>
+    </body>
+</html>

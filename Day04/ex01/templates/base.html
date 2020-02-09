@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>{{ title }}</title>
+        <link href="{% static file_name %}" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        {% include "nav.html" %}
+        <div id="body">
+            {% block body %}
+                {% include content %}
+            {% endblock body %}
+        </div>
+    </body>
+</html>
