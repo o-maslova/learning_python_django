@@ -1,0 +1,8 @@
+{% extends 'init.html' %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    {% autoescape off %}{{ data }}{% endautoescape %}
+{% endblock content %}
