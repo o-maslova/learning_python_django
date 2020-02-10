@@ -1,0 +1,29 @@
+{% extends 'init.html' %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    {% if movie_list %}
+    <table>
+        <tr class="header">
+            {% for every in header %}
+            <td>{{ every }}</td>
+            {% endfor %}
+        </tr>
+        {% for movie in movie_list %}
+        <tr>
+            {% for key, value in movie.items %}
+                {% if key == 'episode_nb' %}
+                    <td class="header">{{ value }}</td>
+                {% else %}
+                    <td>{{ value }}</td>
+                {% endif %}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        {{ data }}
+    {% endif %}
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'init.html' %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block content %}
+<h2>Which film do you want to remove?</h2>
+    <form method="POST">{% csrf_token %}
+        {{ form }}
+        {% if data %}
+            <p>{{ data }}</p>
+        {% else %}
+            <button type="submit">Remove</button>
+        {% endif %}
+    </form>
+{% endblock content %}

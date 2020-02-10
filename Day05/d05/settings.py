@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'ex00',
     'ex02',
     'ex03',
+    'ex04',
+    'ex05',
+    'ex06'
 ]
 
 MIDDLEWARE = [
@@ -80,6 +83,13 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
     }
 }
 
