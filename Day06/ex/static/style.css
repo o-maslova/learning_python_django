@@ -1,0 +1,35 @@
+.tip {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 2px solid;
+    border-color: cornflowerblue;
+    border-radius: 50%;
+    padding: 10px;
+    margin: 10px;
+    align-content: center;
+    /*width: 100%;*/
+}
+
+.vote {
+    display: flex;
+    flex-direction: column;
+}
+
+.upvote {
+    border-radius: 5px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.additional {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}

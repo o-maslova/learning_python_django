@@ -7,8 +7,9 @@
         <link href="{% static file_name %}" rel="stylesheet" type="text/css">
     </head>
     <body>
+    <h1>{{ title }}</h1>
     {% block content %}
-        {{ data }}
+        {% autoescape off %}{{ data }}{% endautoescape %}
     {% endblock content %}
     </body>
 </html>

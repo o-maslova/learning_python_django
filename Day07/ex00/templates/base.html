@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+    <head>
+        <meta charset="utf-8">
+        <title>{{ title }}</title>
+        {% block style %}
+        {% endblock style %}
+    </head>
+    <body>
+        <button><a href="{% url 'logout' %}">Logout</a></button>
+    {% block content %}
+    {% endblock content %}
+    </body>
+</html>

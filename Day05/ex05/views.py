@@ -2,6 +2,7 @@ from django.shortcuts import render
 from ex03.additional import *
 from .models import RemoveForm
 
+
 def populate(request):
     page_content = populate_table()
     return render(request, 'populate.html', {'title': "DB insertions",

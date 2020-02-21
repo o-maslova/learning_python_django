@@ -38,11 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ex00',
+    'ex01',
     'ex02',
     'ex03',
     'ex04',
     'ex05',
-    'ex06'
+    'ex06',
+    'ex07',
+    'ex08',
+    'ex09'
 ]
 
 MIDDLEWARE = [
@@ -81,8 +85,12 @@ WSGI_APPLICATION = 'd05.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'formationdjango',
+        'USER': 'djangouser',
+        'PASSWORD': 'secret',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 

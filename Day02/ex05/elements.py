@@ -1,4 +1,4 @@
-from elem import Elem, Text
+from .elem import Elem, Text
 
 
 class Html(Elem):

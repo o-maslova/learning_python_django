@@ -1,0 +1,26 @@
+{% extends 'init.html' %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block content %}
+    {% if list %}
+    <table>
+        <tr class="header">
+            {% for every in header %}
+            <td>{{ every }}</td>
+            {% endfor %}
+        </tr>
+        {% for elem in list %}
+        <tr>
+            <td>{{ elem.name }}</td>
+            <td>{{ elem.homeworld }}</td>
+            <td>{{ elem.climate }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        {% autoescape off %}
+            {{ data }}
+        {% endautoescape %}
+    {% endif %}
+{% endblock content %}

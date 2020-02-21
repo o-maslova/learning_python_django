@@ -21,6 +21,9 @@ from ex03 import views as ex03_views
 from ex04 import views as ex04_views
 from ex05 import views as ex05_views
 from ex06 import views as ex06_views
+from ex07 import views as ex07_views
+from ex08 import views as ex08_views
+from ex09 import views as ex09_views
 
 
 urlpatterns = [
@@ -42,4 +45,11 @@ urlpatterns = [
     path('ex06/display', ex06_views.display, name='ex06_display'),
     path('ex06/populate', ex06_views.populate, name='ex06_populate'),
     path('ex06/update', ex06_views.update, name='ex06_update'),
+    path('ex07/display', ex07_views.display, name='ex07_display'),
+    path('ex07/populate', ex07_views.populate, name='ex07_populate'),
+    path('ex07/update', ex07_views.update, name='ex07_update'),
+    path('ex08/init', ex08_views.init, name='ex08_init'),
+    path('ex08/display', ex08_views.display, name='ex08_display'),
+    path('ex08/populate', ex08_views.populate, name='ex08_populate'),
+    path('ex09/display', ex09_views.display, name='ex09_display'),
 ]

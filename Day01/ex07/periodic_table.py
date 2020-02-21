@@ -22,7 +22,7 @@ def create_css_file():
              "  padding: 5px;\n" \
              "}\n" \
              ".sign {\n" \
-             "text-align: right;\n" \
+             "text-align: left;\n" \
              "font-size: 1.3vw;\n" \
              "font: bold;\n" \
              "padding-bottom: 3px;" \
@@ -32,7 +32,7 @@ def create_css_file():
              "font-size: 1vw;\n" \
              "}\n" \
              ".massa {\n"\
-             "text-align: right;\n" \
+             "text-align: left;\n" \
              "font-size: 0.75vw;\n" \
              "}\n" \
              ".electrons {\n" \
@@ -97,7 +97,7 @@ def make_html(list_of_lines):
                  "              </td>\n".format(name=elem['name'],
                                                 number=elem['number'],
                                                 small=elem['small'],
-                                                molar=elem['molar'] ,
+                                                molar=elem['molar'],
                                                 electron=elem['electron'])
         if col_space > 1:
             table += "          <td colspan=\"{num}\" style=\"border: none;\">\n" \

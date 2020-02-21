@@ -3,7 +3,6 @@
 {% block title %}{{ title }}{% endblock title %}
 
 {% block content %}
-    <h1>{{ title }}</h1>
     {% if movie_list %}
     <table>
         <tr class="header">
@@ -24,6 +23,8 @@
         {% endfor %}
     </table>
     {% else %}
-        {{ data }}
+        {% autoescape off %}
+            <p>{{ data }}</p>
+        {% endautoescape %}
     {% endif %}
 {% endblock content %}

@@ -1,20 +1,27 @@
 from django.db import IntegrityError
-from .models import Movies
+from ex03.models import Movies
+from ex05.models import Movies
+from ex07.models import Movies
+
 
 def populate_table():
     page_content = ""
 
     for entry in film_data():
         try:
-            movie = Movies.objects.create(episode_nb=entry['episode_nb'],
-                                          title=entry['title'],
-                                          director=entry['director'],
-                                          producer=entry['producer'],
-                                          release_date=entry['release_date'])
-            movie.save()
-            page_content += "<p>'{name}' insertion is OK</p>".format(name=movie.title)
+            try:
+                movie = Movies.objects.create(episode_nb=entry['episode_nb'],
+                                              title=entry['title'],
+                                              director=entry['director'],
+                                              producer=entry['producer'],
+                                              release_date=entry['release_date'])
+                movie.save()
+                page_content += "<p>'{name}' insertion is OK</p>".format(name=movie.title)
+            except Exception:
+                page_content = "No available data!"
         except IntegrityError:
             page_content += "<br>'{film}' film is already exist!".format(film=entry['title'])
+            break
     return page_content
 
 
@@ -25,12 +32,14 @@ def display_table():
         'header': ["", "Title", "Opening crawl", "Director", "Producer", "Release date"],
     }
 
-    movies_list = Movies.objects.all()
-
-    if movies_list.count() == 0:
+    try:
+        movies_list = Movies.objects.all()
+        if movies_list.count() == 0:
+            params.update({'data': "No available data!"})
+        else:
+            params.update({'movie_list': movies_list})
+    except Exception:
         params.update({'data': "No available data!"})
-    else:
-        params.update({'movie_list': movies_list})
     return params
 
 

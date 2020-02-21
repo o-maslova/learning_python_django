@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link href="{% static 'style.css' %}" rel="stylesheet" type="text/css">
+{% endblock style %}
+
+{% block content %}
+    <h3>Articles</h3>
+    {% if not articles_list %}
+        <p>No available data!</p>
+    {% else %}
+    <table>
+        <tr>
+            <td>Title</td>
+            <td>Created</td>
+            <td>Synopsis</td>
+            <td>Article link</td>
+        </tr>
+        {% for article in articles_list %}
+        <tr>
+            <td>{{ article.title }}</td>
+            <td>{{ article.created }}</td>
+            <td>{{ article.synopsis }}</td>
+            <td><a href="{% url 'article_detail' pk=article.pk %}">Detail</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+{% endblock content %}

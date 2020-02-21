@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% load bootstrap3 %}
+
+{% block content %}
+<form method="POST" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% if error %}
+        {% bootstrap_alert error alert_type="warning"%}
+    {% endif %}
+    <button type="submit" class="btn btn-primary">
+            {% bootstrap_icon "star" %} Login
+    </button>
+</form>
+{% endblock content %}

@@ -1,4 +1,3 @@
-from django.db import models
 from django import forms
 
 class UpdateForm(forms.Form):
@@ -7,4 +6,4 @@ class UpdateForm(forms.Form):
         ma_choices = kwargs.pop('choices')
         super(UpdateForm, self).__init__(*args, **kwargs)
         self.fields['select_movie'] = forms.ChoiceField(choices=ma_choices)
-        self.fields['movie_description'] = forms.TextInput()
+        self.fields['movie_description'] = forms.CharField(empty_value="Enter you description")

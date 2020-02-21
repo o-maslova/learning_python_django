@@ -25,6 +25,9 @@ def populate_table(t_name):
         curr = connection.cursor()
         for elem in film_data():
             res = insertion(t_name, curr, elem)
+            if res == "No available data!":
+                page_content = res
+                break
             if res is not "OK":
                 page_content += create_page_content(res)
             else:
@@ -32,6 +35,8 @@ def populate_table(t_name):
                                                                                          res=res))
         connection.commit()
         connection.close()
+    else:
+        page_content = "Something wrong with the server!"
     return {'title': "DB insertions",
             'data': page_content}
 
@@ -39,6 +44,11 @@ def populate_table(t_name):
 def display_table(t_name):
     connection = create_conn()
     data = ""
+    params = {
+        'title': "Table content",
+        'file_name': 'style.css',
+        'data': data
+    }
     page_content = ""
 
     if type(connection) is not str:
@@ -47,22 +57,20 @@ def display_table(t_name):
             query = "SELECT * FROM %s;" % t_name
             curr.execute(query)
         except Exception:
-            return {'title': "Table content",
-                    'data': "No data available"}
+            params['data'] = "No available data!"
+            return params
 
         response = curr.fetchall()
         if len(response) == 0:
-            data = "No available data!"
+            params['data'] = "No available data!"
         else:
             page_content = make_beautiful_output(response)
         connection.close()
-        return {'title': "Table content",
-                'file_name': 'style.css',
-                'movie_list': page_content,
-                'data': data}
+        params['movie_list'] = page_content
+        return params
     else:
-        return {'title': "Table content",
-                'data': connection}
+        params['data'] = connection
+        return params
 
 
 def create_table(t_name, cursor):
@@ -89,15 +97,18 @@ def create_conn():
             user='djangouser',
             password='secret'
         )
-    except psycopg2.OperationalError as err:
-        return str(err)
+    except:
+        return "Something wrong with the server!"
     return connection
 
 
 def insertion(t_name, cursor, what):
-    query = " SELECT * FROM %s WHERE title='%s'; " % (t_name, what['title'])
-    cursor.execute(query)
-    response = cursor.fetchall()
+    try:
+        query = " SELECT * FROM %s WHERE title='%s'; " % (t_name, what['title'])
+        cursor.execute(query)
+        response = cursor.fetchall()
+    except Exception:
+        return "No available data!"
     if len(response) != 0:
         return "'{movie}' movie is ALREADY EXIST in the database!".format(movie=what['title'])
     try:
@@ -116,8 +127,8 @@ def make_beautiful_output(data):
     lst = []
     for elem in data:
         lst.append({
-            'title': elem[0],
-            'episode_nb': elem[1],
+            'episode_nb': elem[0],
+            'title': elem[1],
             'opening_crawl': elem[2],
             'director': elem[3],
             'producer': elem[4],

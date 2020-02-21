@@ -3,10 +3,12 @@
 {% block title %}{{ title }}{% endblock title %}
 
 {% block content %}
-<h2>Which film do you want to remove?</h2>
+<h2>Description of which film do you want to update?</h2>
     <form method="POST">{% csrf_token %}
-        {{ form }}
-        <button type="submit">Remove</button>
+        {% if form %}
+            {{ form.as_p }}
+             <button type="submit">Update</button>
+        {% endif %}
         <p>{{ data }}</p>
     </form>
 {% endblock content %}

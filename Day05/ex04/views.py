@@ -35,7 +35,6 @@ def delete_entry(t_name, elem):
         return connection
 
 def remove(request):
-    # params = display_table("ex04_movies")
     params = {}
     db = [(el['title'], el['title']) for el in display_table("ex04_movies")['movie_list']]
     form = RemoveForm(choices=db)
